@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTG Battlefield Status</title>
+    <!-- Link to the CSS file for styling (Task 2) -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app-container">
+      <!-- Main Title (Task 1) -->
+      <h1 id="main-title">MTG Battlefield Status</h1>
+
+      <div id="control-panel">
+        <!-- Toggle Anchor Tag (Task 4 attribute modification target) -->
+        <a id="toggle-button" href="#">&#9876; Reveal Battlefield</a>
+
+        <!-- Timer Button (Task 10 event listener target) -->
+        <button id="timer-button">&#9889; Start Mana Surge</button>
+
+        <!-- Summon and Reset buttons -->
+        <button id="summon-button">&#9651; Summon Permanent</button>
+        <button id="reset-button">&#8635; Reset Battlefield</button>
+      </div>
+
+      <!-- Status Output Div. Initially hidden via CSS class (Task 2) -->
+      <div id="status-output" class="hidden">
+        <p>&#9876; Current Battlefield Status:</p>
+        <div id="battlefield-zone"></div>
+      </div>
+
+      <!-- Permanent Types List (Task 9 iteration target) -->
+      <h2>Permanent Types</h2>
+      <ul id="item-list">
+        <li>&#9651; Creature</li>
+        <li>&#9670; Artifact</li>
+        <li>&#9733; Enchantment</li>
+        <li>&#9660; Land</li>
+        <li>&#9775; Planeswalker</li>
+      </ul>
+    </div>
+
+    <!-- Link to the JavaScript file for interactivity -->
+    <script src="script.js"></script>
+  </body>
+</html>

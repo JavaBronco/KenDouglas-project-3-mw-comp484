@@ -1,0 +1,259 @@
+/* MTG-themed palette */
+:root {
+  --gold: #c9a84c;
+  --gold-dark: #8b6914;
+  --card-bg: #f5e6c8;
+  --card-border: #7a5c2e;
+  --parchment: #ede0c8;
+  --mana-blue: #0e68ab;
+  --mana-green: #00733e;
+  --panel-bg: #1a1a2e;
+  --text-dark: #2c1810;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+body {
+  font-family: 'Crimson Text', Georgia, serif;
+  background-color: #0d0d1a;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(10, 60, 100, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(60, 10, 10, 0.3) 0%, transparent 50%);
+  padding-top: 30px;
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+#app-container {
+  width: 90%;
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 28px 32px;
+  border-radius: 12px;
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 6px var(--gold-dark),
+    0 0 30px rgba(201, 168, 76, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+#app-container::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--gold-dark);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+h1#main-title {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-align: center;
+  margin: 0 0 18px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: var(--card-border);
+  margin: 20px 0 8px 0;
+  border-top: 1px solid var(--gold);
+  padding-top: 14px;
+  letter-spacing: 0.05em;
+}
+
+#control-panel {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  background: var(--parchment);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+}
+
+#control-panel a,
+#control-panel button {
+  padding: 10px 18px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+}
+
+#control-panel a#toggle-button {
+  background: linear-gradient(135deg, var(--mana-blue), #0a4a7a);
+  color: #e8f4fd;
+  border: 2px solid #5ba3d4;
+  box-shadow: 0 2px 6px rgba(14, 104, 171, 0.4);
+}
+
+#control-panel a#toggle-button:hover {
+  background: linear-gradient(135deg, #1a78bb, var(--mana-blue));
+  box-shadow: 0 4px 12px rgba(14, 104, 171, 0.6);
+  transform: translateY(-1px);
+}
+
+#control-panel button#timer-button {
+  background: linear-gradient(135deg, #8b0000, #5c0000);
+  color: #ffd700;
+  border: 2px solid #cc2200;
+  box-shadow: 0 2px 6px rgba(139, 0, 0, 0.4);
+}
+
+#control-panel button#timer-button:hover {
+  background: linear-gradient(135deg, #a01010, #8b0000);
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+#control-panel button#summon-button {
+  background: linear-gradient(135deg, var(--mana-green), #004d29);
+  color: #d4f5dc;
+  border: 2px solid #00a854;
+  box-shadow: 0 2px 6px rgba(0, 115, 62, 0.4);
+}
+
+#control-panel button#summon-button:hover {
+  background: linear-gradient(135deg, #00994a, var(--mana-green));
+  box-shadow: 0 4px 12px rgba(0, 115, 62, 0.6);
+  transform: translateY(-1px);
+}
+
+#control-panel button#reset-button {
+  background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+  color: #ccc;
+  border: 2px solid #666;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#control-panel button#reset-button:hover {
+  background: linear-gradient(135deg, #5a5a5a, #3a3a3a);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+#status-output {
+  border: 2px solid var(--gold);
+  padding: 16px;
+  margin-top: 14px;
+  background: linear-gradient(135deg, #e8f4fd, #d0e8f8);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #0a3a5a;
+}
+
+#status-output p {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  font-style: italic;
+}
+
+#status-output span {
+  display: block;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 4px 0;
+  font-size: 0.88rem;
+}
+
+/* ⚔ Battlefield revealed — blue mana */
+#status-output span.event-reveal {
+  background: rgba(14, 104, 171, 0.12);
+  border-left: 3px solid var(--mana-blue);
+  color: var(--mana-blue);
+}
+
+/* ⚡ Mana Surge channeled — red mana */
+#status-output span.event-surge {
+  background: rgba(139, 0, 0, 0.08);
+  border-left: 3px solid #cc2200;
+  color: #8b0000;
+}
+
+/* ■ Mana Surge dissipated / Reset — neutral/gray */
+#status-output span.event-stop {
+  background: rgba(60, 60, 60, 0.07);
+  border-left: 3px solid #888;
+  color: #444;
+}
+
+/* ▲ Permanent summoned — green mana */
+#status-output span.event-summon {
+  background: rgba(0, 115, 62, 0.1);
+  border-left: 3px solid var(--mana-green);
+  color: var(--mana-green);
+}
+
+/* Permanent cards in the battlefield zone */
+#battlefield-zone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.permanent-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--parchment), var(--card-bg));
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.permanent-card em {
+  font-family: 'Crimson Text', Georgia, serif;
+  color: #888;
+  font-size: 0.78rem;
+}
+
+#item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#item-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+  font-size: 1.05rem;
+  transition: background 0.15s;
+}
+
+#item-list li:last-child {
+  border-bottom: none;
+}
+
+#item-list li:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-radius: 4px;
+}
+
+/* --- Task 2 Requirement: The Hiding Class --- */
+/* This class must be defined to enable the toggle functionality later. */
+.hidden {
+  /* Sets the element to be completely invisible and not take up space. */
+  display: none;
+}
